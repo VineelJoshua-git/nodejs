@@ -1,9 +1,8 @@
-const os=require("os")
-console.log(os.platform())
-let http=require('http');
-http.createServer(function(req,res){
-    res.writeHead(200,{'Content-type':'text/html'
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
 
-    })
-    res.end('Hello')
-}).listen(8080)
+emitter.on('welcome', (name) => {
+    console.log(`Welcome ${name}`);
+});
+
+emitter.emit('welcome', 'Vineel');
